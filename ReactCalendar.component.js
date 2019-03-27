@@ -66,29 +66,6 @@ export class ReactCalendar extends Component {
     })
   }
 
-  componentWillReceiveProps = (nextProps) =>{
-    if(nextProps.compromissosIdsPorDatas)
-      this.setState({
-        compromissosIdsPorDatas: nextProps.compromissosIdsPorDatas
-      })
-    if(nextProps.compromissos)
-      this.setState({compromissos: nextProps.compromissos })
-  }
-
-
-  componentWillMount = () => {
-    this.renderizarMesAtual()
-    
-    if(this.props.compromissosIdsPorDatas)
-      this.setState({
-        compromissosIdsPorDatas: this.props.compromissosIdsPorDatas 
-      })
-    if(this.props.compromissos)
-      this.setState({compromissos: this.props.compromissos })
-
-
-  }
-
   render () {
     const {diasRenderizado, mesRenderizado, anoRenderizado,
        indexMesSelecionado, hoje, mesAtual, selectedDay} =  this.state
