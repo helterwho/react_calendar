@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import './ReactCalendar.style.css'
 import { montarMesAtual, voltarMes, avancarMes, WEEKDAYS_SHORT } from './ReactCalendar.util'
 
@@ -40,7 +39,8 @@ export class ReactCalendar extends Component {
   }
 
   renderizarMesAnterior = () =>{
-    const {dias, nome, ano} =  (voltarMes(this.state.diasRenderizado[0].mes, this.state.anoRenderizado))
+    const {dias, nome, ano} =  (voltarMes(this.state.diasRenderizado[0].mes,
+      this.state.anoRenderizado))
     this.setState({diasRenderizado: dias,
       anoRenderizado: ano,
       mesRenderizado: nome
@@ -48,7 +48,8 @@ export class ReactCalendar extends Component {
   }
 
   renderizarMesSeguinte = () =>{
-    const {dias, nome, ano} =  (avancarMes(this.state.diasRenderizado[0].mes, this.state.anoRenderizado))
+    const {dias, nome, ano} =  (avancarMes(this.state.diasRenderizado[0].mes,
+      this.state.anoRenderizado))
     this.setState({diasRenderizado: dias,
       anoRenderizado: ano,
       mesRenderizado: nome
@@ -61,13 +62,15 @@ export class ReactCalendar extends Component {
       anoRenderizado: ano,
       mesRenderizado: nome,
       hoje: hoje,
-      mesAtual: dias  [0].mes
+      mesAtual: dias[0].mes
     })
   }
 
   componentWillReceiveProps = (nextProps) =>{
     if(nextProps.compromissosIdsPorDatas)
-      this.setState({compromissosIdsPorDatas: nextProps.compromissosIdsPorDatas })
+      this.setState({
+        compromissosIdsPorDatas: nextProps.compromissosIdsPorDatas
+      })
     if(nextProps.compromissos)
       this.setState({compromissos: nextProps.compromissos })
   }
@@ -77,7 +80,9 @@ export class ReactCalendar extends Component {
     this.renderizarMesAtual()
     
     if(this.props.compromissosIdsPorDatas)
-      this.setState({compromissosIdsPorDatas: this.props.compromissosIdsPorDatas })
+      this.setState({
+        compromissosIdsPorDatas: this.props.compromissosIdsPorDatas 
+      })
     if(this.props.compromissos)
       this.setState({compromissos: this.props.compromissos })
 
@@ -86,8 +91,7 @@ export class ReactCalendar extends Component {
 
   render () {
     const {diasRenderizado, mesRenderizado, anoRenderizado,
-       indexMesSelecionado, hoje, mesAtual, selectedDay, compromissosIdsPorDatas,
-       compromissos } =  this.state
+       indexMesSelecionado, hoje, mesAtual, selectedDay} =  this.state
 
 
     return (
@@ -99,17 +103,29 @@ export class ReactCalendar extends Component {
 
           <div className ='reactCalendar__container_top_up'>
             <div className='reactCalendar__switcher_container'>
-              <div className='reactCalendar__switcher_option' onClick={()=> this.atualizarVisaoMes(0)}>
-                <span style={indexMesSelecionado === 0 ? {color: 'var(--green)'} : {}}>Atual</span>
+              <div className='reactCalendar__switcher_option' 
+                onClick={()=> this.atualizarVisaoMes(0)}>
+                <span style={indexMesSelecionado === 0 
+                  ? {color: 'var(--green)'} 
+                  : {}}>Atual
+                </span>
               </div>
 
-              <div className='reactCalendar__switcher_option' onClick={()=> this.atualizarVisaoMes(1)} 
-              style={{borderLeft:'1px solid #D7DAE2', borderRight:'1px solid #D7DAE2'}}>
-                <span style={indexMesSelecionado === 1 ? {color: 'var(--green)'} : {}}>Anterior</span>
+              <div className='reactCalendar__switcher_option' 
+                onClick={()=> this.atualizarVisaoMes(1)} 
+                style={{borderLeft:'1px solid #D7DAE2', 
+                borderRight:'1px solid #D7DAE2'}}>
+                <span style={indexMesSelecionado === 1 
+                  ? {color: 'var(--green)'} 
+                  : {}}>Anterior
+                </span>
               </div>
 
-              <div className='reactCalendar__switcher_option' onClick={()=> this.atualizarVisaoMes(2)}>
-                <span style={indexMesSelecionado === 2 ? {color: 'var(--green)'} : {}}>Próximo</span>
+              <div className='reactCalendar__switcher_option' 
+                onClick={()=> this.atualizarVisaoMes(2)}>
+                <span style={indexMesSelecionado === 2 
+                ? {color: 'var(--green)'} 
+                : {}}>Próximo</span>
               </div>
             </div>
           </div>
@@ -124,13 +140,23 @@ export class ReactCalendar extends Component {
                   </div>
 
                   {
-                    diasRenderizado.map((dia, i)=>{
-                      if(diaIndex < diasRenderizado[0].diaSemana && dia.diaMes === diasRenderizado[0].diaMes)
+                    diasRenderizado.map((dia)=>{
+                      if(diaIndex < diasRenderizado[0].diaSemana 
+                        && dia.diaMes === diasRenderizado[0].diaMes)
                         return <div className='reactCalendar__week_day' />
                       else if(dia.diaSemana === diaIndex){
-                        return <div className= { JSON.stringify(dia) === JSON.stringify(selectedDay) ? 'reactCalendar__week_day_selected' : 'reactCalendar__week_day'}> 
+                        return <div className= { 
+                          JSON.stringify(dia) === JSON.stringify(selectedDay) 
+                            ? 'reactCalendar__week_day_selected' 
+                            : 'reactCalendar__week_day'
+                        }> 
                           <div className='reactCalendar__week_day_top'>
-                            <span className={hoje == dia.diaMes && mesAtual === dia.mes ? 'reactCalendar__week_day_title_today' :''}> {dia.diaMes} </span> 
+                            <span className={hoje === dia.diaMes 
+                              && mesAtual === dia.mes 
+                              ? 'reactCalendar__week_day_title_today' 
+                              :''}> 
+                            {dia.diaMes} 
+                          </span> 
                           </div>
                         </div>
                         }
