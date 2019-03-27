@@ -1,0 +1,141 @@
+
+.reactCalendar__container{
+    background-color: #fff;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    padding: 10px;
+    margin: 10px;
+    display: table;
+    box-sizing: border-box;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (max-width: 800px) {
+    .reactCalendar__container{
+      left: 0px;
+      position: absolute;
+      zoom: 70%;
+    }
+  }
+  
+  @media (min-width: 1300px) {
+    .reactCalendar__container{
+      zoom: 100%;
+    }
+  }
+  
+  .reactCalendar__container_top{
+    height: 91px;
+    width: 904px; 
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reactCalendar__container_top_up{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .reactCalendar__container_top_up span{
+    font-size: 20px;
+    color: 0 3px 8px rgba(0,0,0,0.3);
+  }
+
+  .reactCalendar__switcher_container{
+      display: flex;
+      height: 38px;
+      width: fit-content;
+      border: 1px solid #D7DAE2;
+      border-radius: 4px;
+  }
+
+  .reactCalendar__switcher_option{
+    height: 38px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; 
+  }
+
+  .reactCalendar__switcher_option span{
+    font-size: 14px;
+    color: 0 3px 8px rgba(0,0,0,0.3);
+  }
+
+  .reactCalendar__week_days_container{
+    width:fit-content;
+    height: fit-content;
+    border: 1px solid #EAF0F4;
+    display: flex;
+    margin-top: 17px;
+  }
+
+  .reactCalendar__week_day_title{
+    width:130px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F6FA;
+  }
+
+  .reactCalendar__week_day_title span{
+    font-size: 12px;
+    color: #A3A6B4;
+    font-weight: bold;
+  }
+
+  .reactCalendar__week_day_container{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+  }
+
+  .reactCalendar__week_day{
+    width:130px;
+    height: 110px;
+    border: 1px solid #EAF0F4;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .reactCalendar__week_day_selected{
+    width:130px;
+    height: 110px;
+    border: 2px solid #48cfad;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+
+  .reactCalendar__week_day_top{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 15px;
+    padding-top: 15px;
+  }
+
+  .reactCalendar__week_day_title_today{
+    color: #fff;
+    background-color: #48cfad;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cedula-calendario-infos-linha a{
+    background-color: #3bafda;
+    color: #fff;
+    width: 100%;
+  }
