@@ -11,9 +11,7 @@ export class ReactCalendar extends Component {
       diasRenderizado: [],
       indexMesSelecionado: 0,
       hoje: null,
-      selectedDay: null,
-      compromissosIdsPorDatas: [],
-      compromissos: []
+      selectedDay: null
     }
 
   }
